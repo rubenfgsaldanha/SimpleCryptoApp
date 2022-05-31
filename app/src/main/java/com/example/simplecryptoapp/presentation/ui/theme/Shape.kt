@@ -1,4 +1,4 @@
-package com.example.simplecryptoapp.ui.theme
+package com.example.simplecryptoapp.presentation.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
