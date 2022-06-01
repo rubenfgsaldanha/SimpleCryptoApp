@@ -5,9 +5,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.simplecryptoapp.common.Constants.PARAM_COIN_ID
 import com.example.simplecryptoapp.common.Resource
 import com.example.simplecryptoapp.domain.use_case.get_coin.GetCoinUseCase
+import com.example.simplecryptoapp.presentation.destinations.CoinDetailScreenDestination
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -23,9 +23,8 @@ class CoinDetailViewModel @Inject constructor(
     val state: State<CoinDetailState> = _state
 
     init {
-        savedStateHandle.get<String>(PARAM_COIN_ID)?.let { coinId ->
-            getCoinById(coinId)
-        }
+        val args = CoinDetailScreenDestination.argsFrom(savedStateHandle)
+        getCoinById(args.coinId)
     }
 
     private fun getCoinById(coinId: String){

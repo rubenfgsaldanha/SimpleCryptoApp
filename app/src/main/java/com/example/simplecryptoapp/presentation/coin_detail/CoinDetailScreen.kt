@@ -18,7 +18,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.simplecryptoapp.presentation.coin_detail.components.CoinTag
 import com.example.simplecryptoapp.presentation.coin_detail.components.TeamListItem
 import com.google.accompanist.flowlayout.FlowRow
+import com.ramcosta.composedestinations.annotation.Destination
 
+@Destination(navArgsDelegate = CoinDetailNavArgs::class)
 @Composable
 fun CoinDetailScreen(
     viewModel: CoinDetailViewModel = hiltViewModel()
