@@ -23,7 +23,7 @@ class CoinRepositoryImpl @Inject constructor(
     override fun getCoins(): Flow<Resource<List<Coin>>> = flow{
 
         emit(Resource.Loading())
-        val coins = api.getCoins()
+        val coins = api.getCoins().subList(0, 200)
         emit(Resource.Success(coins.map { it.toCoin() }))
 
     }.catch { exception ->

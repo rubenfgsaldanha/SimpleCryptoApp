@@ -10,7 +10,6 @@ class GetCoinsUseCase @Inject constructor(
     private val repository: CoinRepository
 ) {
 
-
     operator fun invoke(): Flow<Resource<List<Coin>>> = repository.getCoins()
 
 }
